@@ -55,6 +55,10 @@ entries:
       url: /p1_sample6.html
       output: web, pdf
 
+    - title: Sample x
+      url: /CustomerComplaint.html
+      output: web, pdf
+
     - title: Sample 7
       url: /p1_sample7.html
       output: web, pdf
