@@ -1,25 +1,84 @@
----
-title: Sample 7 Topic (Product 1)
-keywords: sample
-summary: "This is just a sample topic..."
-sidebar: product1_sidebar
-permalink: p1_sample7.html
-folder: product1
----
+| Name                            | Required     | Description                                                  | Default Value | Example                                                      |
+| ------------------------------- | ------------ | ------------------------------------------------------------ | ------------- | ------------------------------------------------------------ |
+| userInfo.firstName              | Optional     | Frist name of the user                                       |               | Johnny                                                       |
+| userInfo.lastName               | Optional     | Last name of the user                                        |               | Depp                                                         |
+| userInfo.uid                    | Yes          | User Id or Customer Id of the user for which order related queries will be carried out |               | John451/ 4578122/ xyz@gmail.com                              |
+| userInfo.userName               | Optional     | Username of the user                                         |               |                                                              |
+| queryInfo.interestType          | Yes          | Used to identify the request type                            |               | orderDetails,orderStatus,trackingDetails                     |
+| entityInfo.orderId              | Yes/Optional | To get the order related information need to pass the orderId, for other questions no need to pass orderId |               | 457852256/8574961EDCF21                                      |
+| languageCode                    | Yes          | To identify the language                                     | en            | en, gr, fr                                                   |
+|                                 |              |                                                              |               |                                                              |
+| response.responseType           | Yes          | Specifies the type of response                               | text          | text, card, media                                            |
+| responseMessages.simpleResponse | Optional     | If the response type is set to "text" then the respective text response should be appened here |               | "simpleResponse": {        "responseText": "My response"       } |
+| responseMessages.basicCard      | Optional     | If the response type is set to "card" then the respective card response should be appened here |               | "basicCard": {        "title": "Product Detail",        "subtitle": "This is a subtitle",        "formattedText": "This is a basic card. Text in a basic card can include \"quotes\" and\n  most other unicode characters including emojis. Basic cards also support",        "image": {         "url": "https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png",         "accessibilityText": "Image alternate text"        }       } |
+| responseMessages.mediaResponse  | Optional     | If the response type is set to "media" then the respective media response should be appened here. |               | "mediaResponse": {        "mediaType": "AUDIO",        "mediaObjects": [         {          "contentUrl": "https://storage.googleapis.com/Jazz_Paris.mp3",          "description": "A funky Jazz tune",          "icon": {           "url": "https://storage.googleapis.com/album_art.jpg",           "accessibilityText": "Album ocean view"          },          "name": "Jazz in Paris"         }        ]       } |
 
-## Sample Content
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
 
 
-## More sample content
+| Sample Request and Response                   |
+| --------------------------------------------- |
+| **Endpoint : /api/rest/v1/ecom/integrations** |
 
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
 
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
 
-There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+```
+{
+  "conversationRequest": {
+  "channel": "TELEGRAM",
+    "userInfo": {
+      "first_name": "Ravi",
+      "last_name": "R",
+      "uid": "51342",
+      "username": "ravir"
+    }
+  },
+  "queryInfo": {
+    "interestType": "cancelOrder",
+    "parameters": {
+      "params": {
+        "entityInfo": {
+          "orderId": "748596"
+        }
+      }
+    }
+  },
+  "languageCode": "en",
+  "response": {
+    "responseType": "text",
+    "responseId": "be49e7a0-8638-486b-899b-be42e3760b46-e15c53b8",
+    "responseMessages": [
+      {
+        "simpleResponse": {
+          "responseText": "Order 748596 cancelled"
+        }
+      },
+      {
+        "basicCard": {
+          "title": "Product Detail",
+          "subtitle": "This is a subtitle",
+          "formattedText": "This is a basic card.  Text in a basic card can include \"quotes\" and\n    most other unicode characters including emojis",
+          "image": {
+            "url": "https://storage.googleapis.com/logo_assistant.png",
+            "accessibilityText": "Image alternate text"
+          }
+        },
+        "mediaResponse": {
+          "mediaType": "AUDIO",
+          "mediaObjects": [
+            {
+              "contentUrl": "https://storage.googleapis.com/Jazz_In_Paris.mp3",
+              "description": "A funky Jazz tune",
+              "icon": {
+                "url": "https://storage.googleapis.com/album_art.jpg",
+                "accessibilityText": "Album cover of an ocean view"
+              },
+              "name": "Jazz in Paris"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+```
 
-{% include links.html %}
