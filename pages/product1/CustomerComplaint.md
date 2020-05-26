@@ -1,3 +1,12 @@
+---
+title: Sample x Topic (Product 1)
+keywords: sample
+summary: "This is just a sample topic..."
+sidebar: product1_sidebar
+permalink: CustomerComplaint.html
+folder: product1
+---
+
 | Name                            | Required     | Description                                                  | Default Value | Example                                                      |
 | ------------------------------- | ------------ | ------------------------------------------------------------ | ------------- | ------------------------------------------------------------ |
 | userInfo.firstName              | Optional     | Frist name of the user                                       |               | Johnny                                                       |
