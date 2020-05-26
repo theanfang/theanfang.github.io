@@ -5,11 +5,38 @@ summary: "This is just a sample topic..."
 sidebar: product1_sidebar
 permalink: CustomerComplaint.html
 folder: product1
+
 ---
+
+| Name               | Required | Description            | Default Value | Example |
+| ------------------ | -------- | ---------------------- | ------------- | ------- |
+| userInfo.firstName | Optional | First name of the user | NA            | Johny   |
+|                    |          |                        |               |         |
+|                    |          |                        |               |         |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 | Name                            | Required     | Description                                                  | Default Value | Example                                                      |
 | ------------------------------- | ------------ | ------------------------------------------------------------ | ------------- | ------------------------------------------------------------ |
-| userInfo.firstName              | Optional     | Frist name of the user                                       |               | Johnny                                                       |
+| userInfo.firstName              | Optional     | Fristnameoftheuser                                           |               | Johnny                                                       |
 | userInfo.lastName               | Optional     | Last name of the user                                        |               | Depp                                                         |
 | userInfo.uid                    | Yes          | User Id or Customer Id of the user for which order related queries will be carried out |               | John451/ 4578122/ xyz@gmail.com                              |
 | userInfo.userName               | Optional     | Username of the user                                         |               |                                                              |
@@ -20,7 +47,7 @@ folder: product1
 | response.responseType           | Yes          | Specifies the type of response                               | text          | text, card, media                                            |
 | responseMessages.simpleResponse | Optional     | If the response type is set to "text" then the respective text response should be appened here |               | "simpleResponse": {        "responseText": "My response"       } |
 | responseMessages.basicCard      | Optional     | If the response type is set to "card" then the respective card response should be appened here |               | "basicCard": {        "title": "Product Detail",        "subtitle": "This is a subtitle",        "formattedText": "This is a basic card. Text in a basic card can include \"quotes\" and\n  most other unicode characters including emojis. Basic cards also support",        "image": {         "url": "https://storage.googleapis.com/actionsresources/logo_assistant_2x_64dp.png",         "accessibilityText": "Image alternate text"        }       } |
-| responseMessages.mediaResponse  | Optional     | If the response type is set to "media" then the respective media response should be appened here. |               | "mediaResponse": {        "mediaType": "AUDIO",        "mediaObjects": [         {          "contentUrl": "https://storage.googleapis.com/Jazz_Paris.mp3",          "description": "A funky Jazz tune",          "icon": {           "url": "https://storage.googleapis.com/album_art.jpg",           "accessibilityText": "Album ocean view"          },          "name": "Jazz in Paris"         }        ]       } |
+| responseMessages.mediaResponse  | Optional     | If the response type is set to "media" then the respective media response should be appened here. |               | ``````                                                       |
 
 
 
@@ -30,7 +57,7 @@ folder: product1
 
 
 
-```
+```json
 {
   "conversationRequest": {
   "channel": "TELEGRAM",
@@ -91,3 +118,10 @@ folder: product1
 }
 ```
 
+
+
+
+
+
+
+Heading3
